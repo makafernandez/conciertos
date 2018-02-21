@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/4.10.0/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/4.10.0/firebase-auth.js"></script>
+    <script defer src="/__/firebase/4.10.0/firebase-database.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+  </head>
+  <body>
+    <section id="splash">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 center-align">
+            <i class="fas fa-paw fa-10x"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="home">
+      <div class="container">
+        <div class="row">
+          <div class="col s12">
+            <a class="waves-effect waves-light btn">
+              <i class="fas fa-sign-in-alt"></i> Sign In</a>
+            <a class="waves-effect waves-light btn">
+              <i class="fas fa-user-plus"></i> Sign Up</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="logIn">
+      <a id="loginGoogle" class="waves-effect waves-light btn">
+        <i class="fas fa-sign-in-alt"></i> Sign In with Google</a>
+      <a id="loginfacebook" class="waves-effect waves-light btn">
+        <i class="fas fa-sign-in-alt"></i> Sign In with Facebook</a>
+    </section>
+    <section id="search">
+      <ul id="display">
+
+      </ul>
+    </section>
+    <!-- Script -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="assets/js/hammer.min.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
