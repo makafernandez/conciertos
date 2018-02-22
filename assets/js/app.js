@@ -17,8 +17,8 @@ firebase.auth().signOut().then(function() {
 });
 
 /* ===== AUTENTICACION FIREBASE ===== */
-// Registro con correo:
 
+// Registro con correo:
 $('#registro').click(function() {
   var newUserName = $('#newUserName').val();
   var newEmail = $('#newEmail').val();
@@ -47,7 +47,7 @@ $('#login').click(function() {
       var errorMessage = error.message;
       // ...
     });
-})
+});
 
 // Oservador de estado:
 function watcher() {
