@@ -139,16 +139,51 @@ let title = '';
 let city = '';
 let country = '';
 let venue = '';
-let keyword = `&keyword=${$('#keyword').val()}`; 
+let keyword = ''; 
 let thumbnail = '';
 
 // Buscador
 $('#keyword').on('input', function() {
   let value = $(this).val().toLowerCase();
-  console.log(value);
+  keyword = `&keyword=${value}`;
 });
-// categories/music?geo=country_id:44
-// https://api.eventful.com/json/events/search?app_key=${appKey}&scheme=https&location=Chile&category=music
+$('#buscar').click(function() {
+  const display = document.getElementById('display');
+  if (display.hasChildNodes()) {
+    display.removeChild(display.childNodes);
+  }
+  fetch(`https://api.eventful.com/json/events/search?app_key=${appKey}&scheme=https&location=Chile&category=music${keyword}`)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      // console.log(data);
+      $.each(data.events, function(i, item) {
+        console.log(item);
+        for (x in item) {
+          console.log(item[x]);
+          title = item[x].title; // Título del evento
+          city = item[x].city_name; // Ciudad del evento
+          country = item[x].country_name; // País
+          venue = item[x].venue_name; // Lugar del evento
+          date = item[x].start_time; // Fecha del evento
+          let splitDate = date.split(' ');
+
+          $('#display').append(`
+          <li>
+            <div class="event" width="100" height="100">
+              <h2 class="evThumb title">${title}</h2>
+              <h4 class="evThumb venue">${venue}</h4>
+              <h5 class="evThumb">${splitDate[0]}</h5>
+              <h5 class="evThumb">${city}, ${country}</h5>
+              <div class="heart"><i class="far fa-heart"></i></div>
+            </div>  
+          </li>`);
+        }
+      });
+    });
+
+});
 
 fetch(`https://api.eventful.com/json/events/search?app_key=${appKey}&scheme=https&location=Chile&category=music`)
   .then(function(response) {
@@ -181,7 +216,8 @@ fetch(`https://api.eventful.com/json/events/search?app_key=${appKey}&scheme=http
     });
   });
 
-// Evento favorito
+
+  // Evento favorito
 $('.heart').click(function() {
   $('.heart i').toggleClass('far');
   $('.heart i').toggleClass('fas');
