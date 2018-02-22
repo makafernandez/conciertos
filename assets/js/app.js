@@ -18,10 +18,8 @@ firebase.auth().signOut().then(function() {
 
 /* ===== AUTENTICACION FIREBASE ===== */
 // Registro con correo:
-function signUp() {
-  var newUserName = $('#newUserName').val();
-  var newName = $('#newName').val();
-  var newLastName = $('#newLastName').val();
+
+$('#registro').click(function() {
   var newUserName = $('#newUserName').val();
   var newEmail = $('#newEmail').val();
   var newPassword = $('#newPassword').val();
@@ -33,10 +31,11 @@ function signUp() {
       var errorMessage = error.message;
       // ...
     });
-}
+});
 
 // Log in con correo:
-function signIn() {
+
+$('#login').click(function() {
   var email = $('#email').val();
   var password = $('#password').val();
 
@@ -48,7 +47,7 @@ function signIn() {
       var errorMessage = error.message;
       // ...
     });
-}
+})
 
 // Oservador de estado:
 function watcher() {
@@ -80,29 +79,6 @@ function watcher() {
 }
 watcher();
 
-// AUTENTICACION CON GOOGLE;
-var provider = new firebase.auth.GoogleAuthProvider();
-$('#loginGoogle').click(function() {
-  firebase.auth().signInWithPopup(provider).then(function(result) {
-    console.log('autenticado usuario ', result.user);
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    var token = result.credential.accessToken;
-    // The signed-in user info.
-    var user = result.user;
-    // ...
-  }).catch(function(error) {
-    console.log('Detectado un error:', error);
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // The email of the user's account used.
-    var email = error.email;
-    // The firebase.auth.AuthCredential type that was used.
-    var credential = error.credential;
-    // ...
-  });
-});
-
 // AUTENTICACION CON FACEBOOK:
 var provider = new firebase.auth.FacebookAuthProvider();
 $('#loginfacebook').click(function() {
@@ -130,6 +106,7 @@ $(document).ready(function() {
   $('.button-collapse').sideNav(); // Versión móvil navbar
   $('.modal').modal(); // Modal search
   $('.slider').slider(); // Slider
+  $(".dropdown-button").dropdown(); // Dropdown
 });
 
 /* API EVENTFUL
