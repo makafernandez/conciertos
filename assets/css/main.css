@@ -19,3 +19,9 @@ section {
 #slider {
   padding-top: 1rem;
 }
+
+#events {
+  background-size: cover;
+  background-repeat: repeat;
+  background-image: url(assets/img/fondo3.jpg);
+}

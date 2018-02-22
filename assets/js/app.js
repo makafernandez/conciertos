@@ -41,7 +41,7 @@ $('#login').click(function() {
 
   firebase.auth().signInWithEmailAndPassword(email, password)
     .catch(function(error) {
-      // console.log('Ingreso exitoso!');
+      console.log('Ingreso exitoso!');
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
@@ -81,7 +81,7 @@ watcher();
 
 // AUTENTICACION CON FACEBOOK:
 var provider = new firebase.auth.FacebookAuthProvider();
-$('#loginfacebook').click(function() {
+$('#loginFacebook').click(function() {
   firebase.auth().signInWithRedirect(provider).then(function(result) {
     console.log('autenticado usuario', result.user);
     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
@@ -107,6 +107,7 @@ $(document).ready(function() {
   $('.modal').modal(); // Modal search
   $('.slider').slider(); // Slider
   $(".dropdown-button").dropdown(); // Dropdown
+  $('.parallax').parallax(); // Parallax
 });
 
 /* API EVENTFUL
@@ -144,7 +145,7 @@ fetch(`https://api.eventful.com/json/events/search?app_key=${appKey}&scheme=http
         city = item[x].city_name; // Ciudad del evento
         country = item[x].country_name; // País
         venue = item[x].venue_name; // Lugar del evento
-        //Thumbnail:
+        // Thumbnail:
         $.getJSON(`https://api.cognitive.microsoft.com/bing/v7.0/images?q=depeche+mode&access_key=1f41e5c9b6f04e98bb3fff33054dc268&`);
 
         $('#display').append(`
