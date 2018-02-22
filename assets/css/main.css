@@ -28,12 +28,16 @@ nav {
 }
 
 .event {
-  background-color: crimson;
+  /*background-color: crimson;*/
   width: 30vw;
   height: 20rem;
   padding: 0.2rem;
   margin: 0.3rem;
   float: left;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  
 }
 
 .evThumb {
@@ -46,9 +50,7 @@ nav {
 }
 
 #events {
-  background-size: cover;
-  background-repeat: repeat;
-  background-image: url(assets/img/fondo3.jpg);
+  background-color: #212121;
 }
 
 #logo {

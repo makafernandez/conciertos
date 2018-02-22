@@ -135,6 +135,12 @@ let country = '';
 let venue = '';
 let keyword = `&keyword=${$('#keyword').val()}`; 
 let thumbnail = '';
+
+// Buscador
+$('#keyword').on('input', function() {
+  let value = $(this).val().toLowerCase();
+  console.log(value);
+});
 // categories/music?geo=country_id:44
 // https://api.eventful.com/json/events/search?app_key=${appKey}&scheme=https&location=Chile&category=music
 
@@ -152,14 +158,15 @@ fetch(`https://api.eventful.com/json/events/search?app_key=${appKey}&scheme=http
         city = item[x].city_name; // Ciudad del evento
         country = item[x].country_name; // País
         venue = item[x].venue_name; // Lugar del evento
-        // Thumbnail:
-        $.getJSON('https://api.cognitive.microsoft.com/bing/v7.0/images?q=depeche+mode&access_key=1f41e5c9b6f04e98bb3fff33054dc268&');
+        date = item[x].start_time; // Fecha del evento
+        let splitDate = date.split(' ');
 
         $('#display').append(`
           <li>
-            <div class="event" background-image="url(${thumbnail})" width="100" height="100">
+            <div class="event" background-image="url(assets/img/back2.jpg)" width="100" height="100">
               <h2 class="evThumb title">${title}</h2>
               <h4 class="evThumb">${venue}</h4>
+              <h5 class="evThumb">${splitDate[0]}</h5>
               <h5 class="evThumb">${city}, ${country}</h5>
             </div>  
           </li>`);

@@ -8,13 +8,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/4.10.0/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/4.10.0/firebase-auth.js"></script>
-    <script defer src="/__/firebase/4.10.0/firebase-database.js"></script>
-    <!-- initialize the SDK after all desired features are loaded -->
-    <script defer src="/__/firebase/init.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-database.js"></script>
   </head>
   <body>
     <section id="splash">
@@ -62,7 +58,7 @@
             </li>
           </ul> <!-- fin Collapse -->
         </div>
-      </nav>
+      </nav> <!-- fin Navbar -->
       <!-- Modal Structure log in -->
       <div id="ingresar" class="modal">
           <div class="modal-content">
@@ -71,7 +67,7 @@
             <input placeholder="Contraseña" id="password" type="password" class="validate">
           </div>
           <div class="modal-footer">
-            <a href="#login" class="modal-action modal-close waves-effect waves-green btn-flat">Entrar </a>
+            <a href="#login" class="modal-action modal-close waves-effect waves-green btn-flat">Entrar</a>
           </div>
         </div>
       <!-- Modal Structure registro -->
@@ -85,8 +81,7 @@
         <div class="modal-footer">
           <a href="#registro" class="modal-action modal-close waves-effect waves-green btn-flat">Agregar</a>
         </div>
-      </div>
-    </nav> <!-- fin Navbar -->
+      </div> <!-- fin Modal Registro -->
       <!-- Modal Búsqueda -->
       <div id="search" class="modal">
         <div class="modal-content">
@@ -102,7 +97,7 @@
           </form>
         </div>
         <div class="modal-footer">
-          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Buscar</a>
         </div>
       </div> <!-- fin Modal -->
       <!-- Slider -->
