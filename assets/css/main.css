@@ -31,18 +31,34 @@ nav {
   /*background-color: crimson;*/
   width: 30vw;
   height: 20rem;
-  padding: 0.2rem;
+  padding: 0.3rem;
   margin: 0.3rem;
   float: left;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  
+}
+
+.caption h3, .caption h5 {
+  font-weight: 700!important;
+}
+
+.caption img {
+  height: 100px;
+  width: 100px;
 }
 
 .evThumb {
   color: hsl(0, 0%, 80%);
-  
+}
+
+.title {
+  color: crimson;
+  font-size: 2.6rem;
+}
+
+.venue {
+  font-size: 1.9rem;
 }
 
 #slider {
@@ -58,4 +74,8 @@ nav {
 }
 .cabecera {
   color: #FFFC3D;
+}
+
+.heart {
+  color: crimson;
 }

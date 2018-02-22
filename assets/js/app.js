@@ -13,7 +13,7 @@ firebase.initializeApp(config);
 $('#logout').click(logOut());
 
 function logOut() {
-  firebase.auth().signOut().then(function () {
+  firebase.auth().signOut().then(function() {
     // Sign-out successful.
   }).catch(function(error) {
     // An error happened.
@@ -169,13 +169,20 @@ fetch(`https://api.eventful.com/json/events/search?app_key=${appKey}&scheme=http
 
         $('#display').append(`
           <li>
-            <div class="event" background-image="url(assets/img/back2.jpg)" width="100" height="100">
+            <div class="event" width="100" height="100">
               <h2 class="evThumb title">${title}</h2>
-              <h4 class="evThumb">${venue}</h4>
+              <h4 class="evThumb venue">${venue}</h4>
               <h5 class="evThumb">${splitDate[0]}</h5>
               <h5 class="evThumb">${city}, ${country}</h5>
+              <div class="heart"><i class="far fa-heart"></i></div>
             </div>  
           </li>`);
       }
     });
   });
+
+// Evento favorito
+$('.heart').click(function() {
+  $('.heart i').toggleClass('far');
+  $('.heart i').toggleClass('fas');
+});
