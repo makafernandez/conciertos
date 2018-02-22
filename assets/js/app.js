@@ -108,6 +108,13 @@ $(document).ready(function() {
   $('.slider').slider(); // Slider
   $(".dropdown-button").dropdown(); // Dropdown
   $('.parallax').parallax(); // Parallax
+
+  // Splash
+  $(function () {
+    setTimeout(function () {
+      $('#splash').fadeOut(500);
+    }, 2000);
+  });
 });
 
 /* API EVENTFUL

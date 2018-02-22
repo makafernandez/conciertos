@@ -21,7 +21,7 @@
       <div class="container">
         <div class="row">
           <div class="col s12 center-align">
-            <img src="assets/img/logo.png">
+            <img id="logo" src="assets/img/logotipo.png">
           </div>
         </div>
       </div>
@@ -30,8 +30,8 @@
       <!-- Navbar -->
       <nav>
         <div class="nav-wrapper">
-          <a href="#!" class="brand-logo center">CONCIERTOS</a>
-          <a href="#" data-activates="mobile-demo" class="button-collapse">
+          <a href="#!" class="grey-text text-darken-4 brand-logo center"><img width="60" height="60" src="assets/img/logo.png" alt=""></a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse grey-text text-darken-4">
             <i class="material-icons">menu</i>
           </a>
           <ul class="center hide-on-med-and-down">
@@ -108,10 +108,12 @@
       <!-- Slider -->
       <div class="row">
         <div class="col s12">
-          <div id="slider" class="slider fullscreen">
+          <div id="slider" class="slider">
             <ul class="slides">
               <li>
-                <img src="https://lorempixel.com/580/250/nature/1">
+                <div class="yellow">
+                  <img class="responsive-img" src="assets/img/back5.jpg">
+                </div>
                 <!-- random image -->
                 <div class="caption center-align">
                   <h3>This is our big Tagline!</h3>
@@ -119,7 +121,7 @@
                 </div>
               </li>
               <li>
-                <img src="https://lorempixel.com/580/250/nature/2">
+                <img src="assets/img/back6.jpg">
                 <!-- random image -->
                 <div class="caption left-align">
                   <h3>Left Aligned Caption</h3>
@@ -127,7 +129,7 @@
                 </div>
               </li>
               <li>
-                <img src="https://lorempixel.com/580/250/nature/3">
+                <img src="assets/img/back3.jpg">
                 <!-- random image -->
                 <div class="caption right-align">
                   <h3>Right Aligned Caption</h3>
@@ -135,7 +137,7 @@
                 </div>
               </li>
               <li>
-                <img src="https://lorempixel.com/580/250/nature/4">
+                <img src="assets/img/back4.jpg">
                 <!-- random image -->
                 <div class="caption center-align">
                   <h3>This is our big Tagline!</h3>
@@ -147,6 +149,7 @@
         </div>
       </div>
       <!-- Parallax -->
+      
       <div class="parallax-container">
         <div class="parallax">
           <img src="assets/img/back1.jpg" alt="concierto">
@@ -182,6 +185,39 @@
         </div>
       </div>
     </section>
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Footer Content</h5>
+            <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Links</h5>
+            <ul>
+              <li>
+                <a class="grey-text text-lighten-3" href="#!">Link 1</a>
+              </li>
+              <li>
+                <a class="grey-text text-lighten-3" href="#!">Link 2</a>
+              </li>
+              <li>
+                <a class="grey-text text-lighten-3" href="#!">Link 3</a>
+              </li>
+              <li>
+                <a class="grey-text text-lighten-3" href="#!">Link 4</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          © 2014 Copyright Text
+          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        </div>
+      </div>
+    </footer>
     
     <!-- Script -->
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
