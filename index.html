@@ -26,22 +26,6 @@
         </div>
       </div>
     </section>
-    <section id="home">
-      <div class="container">
-        <div class="row">
-          <div class="col s12">
-            <a class="waves-effect waves-light btn">
-              <i class="fas fa-sign-in-alt"></i> Sign In</a>
-            <a class="waves-effect waves-light btn">
-              <i class="fas fa-user-plus"></i> Sign Up</a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="logIn">
-      <a id="loginFacebook" class="waves-effect waves-light btn">
-        <i class="fas fa-sign-in-alt"></i> Sign In with Facebook</a>
-    </section>
     <section id="events">
       <!-- Navbar -->
       <nav>
@@ -55,8 +39,15 @@
               <a class="waves-effect waves-light modal-trigger" href="#search"><i class="material-icons">search</i></a>
             </li>
             <li>
-              <a href="mobile.html"><i class="material-icons">more_vert</i></a>
+              <a class="dropdown-button" href="#!" data-activates="dropdown1">Accede<i class="material-icons right">arrow_drop_down</i></a>
             </li>
+          </ul>
+          <!-- Dropdown Structure -->
+          <ul id="dropdown1" class="dropdown-content">
+            <li><a class="modal-trigger" href="#ingresar">Iniciar Sesion</a></li>
+            <li><a class="modal-trigger" href="#nuevousuario">Registrar</a></li>
+            <li class="divider"></li>
+            <li><a id="loginfacebook">Sign In with Facebook</a></li>
           </ul>
           <!-- Collapse -->
           <ul class="side-nav" id="mobile-demo">
@@ -64,11 +55,38 @@
               <a class="waves-effect waves-light modal-trigger" href="#search"><i class="material-icons">search</i></a>
             </li>
             <li>
-              <a href="mobile.html"><i class="material-icons">more_vert</i></a>
+              <li><a class="modal-trigger" href="#ingresar">Iniciar Sesion</a></li>
+              <li><a class="modal-trigger" href="#nuevousuario">Registrar</a></li>
+              <li class="divider"></li>
+              <li><a id="loginfacebook">Iniciar con Facebook</a></li>
             </li>
           </ul> <!-- fin Collapse -->
         </div>
-      </nav> <!-- fin Navbar -->
+      </nav>
+      <!-- Modal Structure log in -->
+      <div id="ingresar" class="modal">
+          <div class="modal-content">
+            <h4>Acceder</h4>
+            <input placeholder="email" id="email" type="email" class="validate">
+            <input placeholder="Contraseña" id="password" type="password" class="validate">
+          </div>
+          <div class="modal-footer">
+            <a href="#login" class="modal-action modal-close waves-effect waves-green btn-flat">Entrar </a>
+          </div>
+        </div>
+      <!-- Modal Structure registro -->
+      <div id="nuevousuario" class="modal">
+        <div class="modal-content">
+          <h4>Registro nuevo usuario</h4>
+          <input placeholder="Nombre usuario" id="newUserName" type="text" class="validate">
+          <input placeholder="email" id="newEmail" type="email" class="validate">
+          <input placeholder="Contraseña" id="newPassword" type="password" class="validate">
+        </div>
+        <div class="modal-footer">
+          <a href="#registro" class="modal-action modal-close waves-effect waves-green btn-flat">Agregar</a>
+        </div>
+      </div>
+    </nav> <!-- fin Navbar -->
       <!-- Modal Búsqueda -->
       <div id="search" class="modal">
         <div class="modal-content">

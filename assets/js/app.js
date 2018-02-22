@@ -18,8 +18,9 @@ firebase.auth().signOut().then(function() {
 
 /* ===== AUTENTICACION FIREBASE ===== */
 // Registro con correo:
-$('#id').click(function() {
-  var newName = $('#newName').val();
+
+$('#registro').click(function() {
+  var newUserName = $('#newUserName').val();
   var newEmail = $('#newEmail').val();
   var newPassword = $('#newPassword').val();
 
@@ -30,10 +31,11 @@ $('#id').click(function() {
       var errorMessage = error.message;
       // ...
     });
-}); 
+});
 
 // Log in con correo:
-function signIn() {
+
+$('#login').click(function() {
   var email = $('#email').val();
   var password = $('#password').val();
 
@@ -45,7 +47,7 @@ function signIn() {
       var errorMessage = error.message;
       // ...
     });
-}
+})
 
 // Oservador de estado:
 function watcher() {
@@ -104,6 +106,7 @@ $(document).ready(function() {
   $('.button-collapse').sideNav(); // Versión móvil navbar
   $('.modal').modal(); // Modal search
   $('.slider').slider(); // Slider
+  $(".dropdown-button").dropdown(); // Dropdown
   $('.parallax').parallax(); // Parallax
 
   // Splash
