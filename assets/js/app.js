@@ -18,11 +18,8 @@ firebase.auth().signOut().then(function() {
 
 /* ===== AUTENTICACION FIREBASE ===== */
 // Registro con correo:
-function signUp() {
-  var newUserName = $('#newUserName').val();
+$('#id').click(function() {
   var newName = $('#newName').val();
-  var newLastName = $('#newLastName').val();
-  var newUserName = $('#newUserName').val();
   var newEmail = $('#newEmail').val();
   var newPassword = $('#newPassword').val();
 
@@ -33,7 +30,7 @@ function signUp() {
       var errorMessage = error.message;
       // ...
     });
-}
+}); 
 
 // Log in con correo:
 function signIn() {
@@ -42,7 +39,7 @@ function signIn() {
 
   firebase.auth().signInWithEmailAndPassword(email, password)
     .catch(function(error) {
-      // console.log('Ingreso exitoso!');
+      console.log('Ingreso exitoso!');
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
@@ -80,32 +77,9 @@ function watcher() {
 }
 watcher();
 
-// AUTENTICACION CON GOOGLE;
-var provider = new firebase.auth.GoogleAuthProvider();
-$('#loginGoogle').click(function() {
-  firebase.auth().signInWithPopup(provider).then(function(result) {
-    console.log('autenticado usuario ', result.user);
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    var token = result.credential.accessToken;
-    // The signed-in user info.
-    var user = result.user;
-    // ...
-  }).catch(function(error) {
-    console.log('Detectado un error:', error);
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // The email of the user's account used.
-    var email = error.email;
-    // The firebase.auth.AuthCredential type that was used.
-    var credential = error.credential;
-    // ...
-  });
-});
-
 // AUTENTICACION CON FACEBOOK:
 var provider = new firebase.auth.FacebookAuthProvider();
-$('#loginfacebook').click(function() {
+$('#loginFacebook').click(function() {
   firebase.auth().signInWithRedirect(provider).then(function(result) {
     console.log('autenticado usuario', result.user);
     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
@@ -130,6 +104,7 @@ $(document).ready(function() {
   $('.button-collapse').sideNav(); // Versión móvil navbar
   $('.modal').modal(); // Modal search
   $('.slider').slider(); // Slider
+  $('.parallax').parallax(); // Parallax
 });
 
 /* API EVENTFUL
@@ -167,7 +142,7 @@ fetch(`https://api.eventful.com/json/events/search?app_key=${appKey}&scheme=http
         city = item[x].city_name; // Ciudad del evento
         country = item[x].country_name; // País
         venue = item[x].venue_name; // Lugar del evento
-        //Thumbnail:
+        // Thumbnail:
         $.getJSON(`https://api.cognitive.microsoft.com/bing/v7.0/images?q=depeche+mode&access_key=1f41e5c9b6f04e98bb3fff33054dc268&`);
 
         $('#display').append(`
