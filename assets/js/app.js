@@ -106,12 +106,12 @@ $(document).ready(function() {
   $('.button-collapse').sideNav(); // Versión móvil navbar
   $('.modal').modal(); // Modal search
   $('.slider').slider(); // Slider
-  $(".dropdown-button").dropdown(); // Dropdown
+  $('.dropdown-button').dropdown(); // Dropdown
   $('.parallax').parallax(); // Parallax
 
   // Splash
-  $(function () {
-    setTimeout(function () {
+  $(function() {
+    setTimeout(function() {
       $('#splash').fadeOut(500);
     }, 2000);
   });
@@ -153,7 +153,7 @@ fetch(`https://api.eventful.com/json/events/search?app_key=${appKey}&scheme=http
         country = item[x].country_name; // País
         venue = item[x].venue_name; // Lugar del evento
         // Thumbnail:
-        $.getJSON(`https://api.cognitive.microsoft.com/bing/v7.0/images?q=depeche+mode&access_key=1f41e5c9b6f04e98bb3fff33054dc268&`);
+        $.getJSON('https://api.cognitive.microsoft.com/bing/v7.0/images?q=depeche+mode&access_key=1f41e5c9b6f04e98bb3fff33054dc268&');
 
         $('#display').append(`
           <li>
