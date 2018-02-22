@@ -1,11 +1,11 @@
 // Initialize Firebase
 var config = {
-  apiKey: "AIzaSyCzHOTVL6o_iXOG4FcHu7l1Z-ryAspmVzo",
-  authDomain: "conciertos-f4603.firebaseapp.com",
-  databaseURL: "https://conciertos-f4603.firebaseio.com",
-  projectId: "conciertos-f4603",
-  storageBucket: "conciertos-f4603.appspot.com",
-  messagingSenderId: "138757723689"
+  apiKey: 'AIzaSyCzHOTVL6o_iXOG4FcHu7l1Z-ryAspmVzo',
+  authDomain: 'conciertos-f4603.firebaseapp.com',
+  databaseURL: 'https://conciertos-f4603.firebaseio.com',
+  projectId: 'conciertos-f4603',
+  storageBucket: 'conciertos-f4603.appspot.com',
+  messagingSenderId: '138757723689'
 };
 firebase.initializeApp(config);
 
@@ -37,7 +37,6 @@ function signUp() {
 
 // Log in con correo:
 function signIn() {
-
   var email = $('#email').val();
   var password = $('#password').val();
 
@@ -58,7 +57,7 @@ function watcher() {
       // User is signed in.
       console.log('Usuario activo!');
       console.log(user);
-      $('#home').show();
+      $('#eventos').show();
       $('#loginGoogle').hide();
       $('#loginFacebook').hide();
       var displayName = user.displayName;
@@ -108,7 +107,7 @@ $('#loginGoogle').click(function() {
 var provider = new firebase.auth.FacebookAuthProvider();
 $('#loginfacebook').click(function() {
   firebase.auth().signInWithRedirect(provider).then(function(result) {
-    console.log('autenticado usuario ', result.user);
+    console.log('autenticado usuario', result.user);
     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
     var token = result.credential.accessToken;
     // The signed-in user info.
@@ -127,6 +126,12 @@ $('#loginfacebook').click(function() {
   });
 });
 
+$(document).ready(function() {
+  $('.button-collapse').sideNav(); // Versión móvil navbar
+  $('.modal').modal(); // Modal search
+  $('.slider').slider(); // Slider
+});
+
 /* API EVENTFUL
 * http://api.eventful.com/json/events/search?app_key=tfgSKd7Mf8bWjvmg&location=San+Diego
 * Métodos: 
@@ -143,8 +148,12 @@ let title = '';
 let city = '';
 let country = '';
 let venue = '';
+let keyword = `&keyword=${$('#keyword').val()}`; 
+let thumbnail = '';
+// categories/music?geo=country_id:44
+// https://api.eventful.com/json/events/search?app_key=${appKey}&scheme=https&location=Chile&category=music
 
-fetch(`http://api.eventful.com/json/events/search?app_key=${appKey}&location=Chile&category=music`)
+fetch(`https://api.eventful.com/json/events/search?app_key=${appKey}&scheme=https&location=Chile&category=music`)
   .then(function(response) {
     return response.json();
   })
@@ -157,12 +166,17 @@ fetch(`http://api.eventful.com/json/events/search?app_key=${appKey}&location=Chi
         title = item[x].title; // Título del evento
         city = item[x].city_name; // Ciudad del evento
         country = item[x].country_name; // País
-        venue = item[x].venue_name // Lugar del evento
+        venue = item[x].venue_name; // Lugar del evento
+        //Thumbnail:
+        $.getJSON(`https://api.cognitive.microsoft.com/bing/v7.0/images?q=depeche+mode&access_key=1f41e5c9b6f04e98bb3fff33054dc268&`);
+
         $('#display').append(`
           <li>
-            <h2>${title}</h2>
-            <h4>${venue}</h4>
-            <h5>${city}, ${country}</h5>
+            <div class="event" background-image="url(${thumbnail})" width="100" height="100">
+              <h2 class="evThumb title">${title}</h2>
+              <h4 class="evThumb">${venue}</h4>
+              <h5 class="evThumb">${city}, ${country}</h5>
+            </div>  
           </li>`);
       }
     });
