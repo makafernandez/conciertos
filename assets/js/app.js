@@ -19,7 +19,7 @@ firebase.auth().signOut().then(function() {
 /* ===== AUTENTICACION FIREBASE ===== */
 
 // Registro con correo:
-$('#registro').click(function() {
+$('#register').click(function() {
   var newUserName = $('#newUserName').val();
   var newEmail = $('#newEmail').val();
   var newPassword = $('#newPassword').val();
@@ -34,7 +34,6 @@ $('#registro').click(function() {
 });
 
 // Log in con correo:
-
 $('#login').click(function() {
   var email = $('#email').val();
   var password = $('#password').val();
@@ -59,13 +58,14 @@ function watcher() {
       $('#eventos').show();
       $('#loginGoogle').hide();
       $('#loginFacebook').hide();
-      var displayName = user.displayName;
-      var email = user.email;
-      var emailVerified = user.emailVerified;
-      var photoURL = user.photoURL;
-      var isAnonymous = user.isAnonymous;
-      var uid = user.uid;
-      var providerData = user.providerData;
+      Materialize.toast(`Bienvenido ${user.displayName}!`, 4000);
+      displayName = user.displayName;
+      email = user.email;
+      emailVerified = user.emailVerified;
+      photoURL = user.photoURL;
+      isAnonymous = user.isAnonymous;
+      uid = user.uid;
+      providerData = user.providerData;
       // ...
     } else {
       // User is signed out.
@@ -77,7 +77,7 @@ function watcher() {
     }
   });
 }
-watcher();
+watcher(); 
 
 // AUTENTICACION CON FACEBOOK:
 var provider = new firebase.auth.FacebookAuthProvider();
