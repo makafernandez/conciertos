@@ -129,6 +129,7 @@ $('#loginfacebook').click(function() {
 $(document).ready(function() {
   $('.button-collapse').sideNav(); // Versión móvil navbar
   $('.modal').modal(); // Modal search
+  $('.slider').slider(); // Slider
 });
 
 /* API EVENTFUL
@@ -148,8 +149,11 @@ let city = '';
 let country = '';
 let venue = '';
 let keyword = `&keyword=${$('#keyword').val()}`; 
+let thumbnail = '';
+// categories/music?geo=country_id:44
+// https://api.eventful.com/json/events/search?app_key=${appKey}&scheme=https&location=Chile&category=music
 
-fetch(`http://api.eventful.com/json/events/search?app_key=${appKey}&scheme=https&location=Chile&category=music`)
+fetch(`https://api.eventful.com/json/events/search?app_key=${appKey}&scheme=https&location=Chile&category=music`)
   .then(function(response) {
     return response.json();
   })
@@ -163,11 +167,16 @@ fetch(`http://api.eventful.com/json/events/search?app_key=${appKey}&scheme=https
         city = item[x].city_name; // Ciudad del evento
         country = item[x].country_name; // País
         venue = item[x].venue_name; // Lugar del evento
+        //Thumbnail:
+        $.getJSON(`https://api.cognitive.microsoft.com/bing/v7.0/images?q=depeche+mode&access_key=1f41e5c9b6f04e98bb3fff33054dc268&`);
+
         $('#display').append(`
           <li>
-            <h2>${title}</h2>
-            <h4>${venue}</h4>
-            <h5>${city}, ${country}</h5>
+            <div class="event" background-image="url(${thumbnail})" width="100" height="100">
+              <h2 class="evThumb title">${title}</h2>
+              <h4 class="evThumb">${venue}</h4>
+              <h5 class="evThumb">${city}, ${country}</h5>
+            </div>  
           </li>`);
       }
     });
