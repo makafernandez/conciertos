@@ -10,11 +10,15 @@ var config = {
 firebase.initializeApp(config);
 
 // Cierre de sesión:
-firebase.auth().signOut().then(function() {
-  // Sign-out successful.
-}).catch(function(error) {
-  // An error happened.
-});
+$('#logout').click(logOut());
+
+function logOut() {
+  firebase.auth().signOut().then(function () {
+    // Sign-out successful.
+  }).catch(function(error) {
+    // An error happened.
+  });
+}
 
 /* ===== AUTENTICACION FIREBASE ===== */
 
@@ -31,6 +35,8 @@ $('#register').click(function() {
       var errorMessage = error.message;
       // ...
     });
+  Materialize.toast(`Gracias por registrarte ${newUserName}!`, 4000);
+  logOut();
 });
 
 // Log in con correo:
