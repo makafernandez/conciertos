@@ -105,6 +105,13 @@ $(document).ready(function() {
   $('.modal').modal(); // Modal search
   $('.slider').slider(); // Slider
   $('.parallax').parallax(); // Parallax
+
+  // Splash
+  $(function () {
+    setTimeout(function () {
+      $('#splash').fadeOut(500);
+    }, 2000);
+  });
 });
 
 /* API EVENTFUL
